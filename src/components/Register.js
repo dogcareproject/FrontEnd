@@ -11,6 +11,8 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
 
   const navigation = useNavigate();
 
@@ -32,8 +34,14 @@ const Register = () => {
 
 
   const onSubmitHandler = (e) => {
+    e.preventDefault();
 
-    axios.post('http://ceprj.gachon.ac.kr:60003/adminRegister', {
+    if (password !== confirmPassword) {
+      setErrorMessage("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    axios.post('/adminRegister', {
       account: userId,
       password: password,
       name: name,

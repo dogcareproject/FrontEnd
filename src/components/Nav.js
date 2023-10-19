@@ -9,6 +9,7 @@ const Nav = () => {
       <Link className="navbarMenu" to={'/userList'}><b>사용자 목록</b></Link>
       <Link className="navbarMenu" to={'/community'}><b>커뮤니티</b></Link>
       <Link className="navbarMenu" to={'/aiModel'}><b>AI Model</b></Link>
+      <Link className='navbarMenu' to={'/'}><b>환경설정</b></Link>
     </div>
   </div>
 };

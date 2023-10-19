@@ -44,11 +44,14 @@ const PostList = ({ postList }) => {
           onChange={setSortType}
           optionList={sortOptionList}
         />
-        {
-          getProcessPostList().map((it) => (
-            <PostItem key={it.id}  {...it} />
-          ))
-        }
+        <div className="PostList-Card">
+          {getProcessPostList().map((post, index) => (
+            <div className="PostItem-Row" key={post.id}>
+              <PostItem key={post.id} {...post} />
+              {index % 3 === 2 && <div className="Clearfix" />} {/* Add clearfix div after every 3 items */}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -1,12 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const MyHeader = () => {
   const [loginOut, setLoginOut] = useState(true);
 
   const handleLogout = () => {
-    setLoginOut(false);
+    setLoginOut(true);
   };
+
 
   return (
     <div className="MyHeader">
