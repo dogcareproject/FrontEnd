@@ -1,4 +1,5 @@
 import axios from "axios";
+import { response } from "express";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -11,17 +12,16 @@ const UserEdit = () => {
   const [originalName, setOriginalName] = useState("");
   const [originalEmail, setOriginalEmail] = useState("");
 
-  const token = localStorage.getItem('token');
-
   useEffect(() => {
+    const token = localStorage.getItem('token');
+
     axios.get('/getMemberList', {
-      // headers: { 'X-Requested-With': 'XMLHttpRequest' }
       headers: {
         Authorization: `Bearer ${token}`,
       }
     })
       .then(response => {
-        const userData = response.data.find(user => parseInt(user.id) === parseInt(id));
+        const userData = response.data.find(user => user.id === id);
         if (userData) {
           setOriginalUserId(userData.account);
           setOriginalPassword(userData.password);
@@ -32,16 +32,16 @@ const UserEdit = () => {
       .catch(error => {
         console.error(error);
       })
-  }, [id])
+  }, [])
 
-  // const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  // const onUserIdHandler = (e) => {
-  //   setUserId(e.target.value);
-  // }
+  const onUserIdHandler = (e) => {
+    setUserId(e.target.value);
+  }
   const onPasswordHandler = (e) => {
     setPassword(e.target.value);
   }
@@ -54,25 +54,20 @@ const UserEdit = () => {
 
   const onUserEditHandler = (e) => {
     e.preventDefault();
-    console.log("ejhlfas");
     const token = localStorage.getItem('token');
     axios.put('/user/infoChange', {
-      id: id,
+      account: userId,
       password: password,
       name: name,
       email: email,
-    }, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
     })
       .then(response => {
-        // const userData = response.data.find(user => parseInt(user.id) === parseInt(id));
-        // if (userData) {
         if (response.status === 200) {
           console.log("정보 수정");
           navigation('/userList');
-          // }
         }
       })
       .catch(error => {
@@ -90,20 +85,21 @@ const UserEdit = () => {
               <form onSubmit={onUserEditHandler}>
                 <div className="form-group">
                   <label className="form-control-label">아이디</label>
-                  <input type="text" placeholder={originalUserId} className="form-control" disabled />
+                  <input type="text" value={originalUserId} className="form-control" onChange={onUserIdHandler} />
                 </div>
                 <div className="form-group">
                   <label className="form-control-label">비밀번호</label>
-                  <input type="password" className="form-control" onChange={onPasswordHandler} />
+                  <input type="password" value={originalPassword} className="form-control" onChange={onPasswordHandler} />
                 </div>
                 <div className="form-group">
                   <label className="form-control-label">이름</label>
-                  <input type="text" placeholder={originalName} className="form-control" onChange={onNameHandler} />
+                  <input type="text" value={originalName} className="form-control" onChange={onNameHandler} />
                 </div>
                 <div className="form-group">
                   <label className="form-control-label">이메일</label>
-                  <input type="email" placeholder={originalEmail} className="form-control" onChange={onEmailHandler} />
+                  <input type="email" value={originalEmail} className="form-control" onChange={onEmailHandler} />
                 </div>
+
                 <div className="col-lg-12 loginbttm">
                   <div className="col-lg-6 login-btm login-text">
                   </div>

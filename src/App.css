@@ -576,8 +576,8 @@ h6 span {
   background: #03e9f4;
   color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
-    0 0 100px #03e9f4;
+  box-shadow: 0 0 5px #686e6e, 0 0 25px #686e6e, 0 0 50px #686e6e,
+    0 0 100px #686e6e;
 }
 
 .login-box a span {
@@ -645,6 +645,114 @@ h6 span {
 }
 
 .login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+.login-box form button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  background-color: black;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+}
+
+.login-box button:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #686e6e, 0 0 25px #686e6e, 0 0 50px #686e6e,
+    0 0 100px #686e6e;
+}
+
+.login-box button span {
+  position: absolute;
+  display: block;
+}
+
+.login-box button span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.login-box button span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.login-box button span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.login-box button span:nth-child(4) {
   bottom: -100%;
   left: 0;
   width: 2px;
@@ -800,4 +908,113 @@ h6 span {
 
 .UserEdit .UserEditForm {
   width: 100%;
+}
+
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 250px;
+  padding: 10px;
+}
+
+.form .form-header {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.form .form-header > div {
+  width: calc(100% / 2);
+  color: #ddd;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.form.signup .form-header div.show-signup {
+  color: #f1575b;
+}
+
+.form.signin .form-header div.show-signin {
+  color: #f1575b;
+}
+
+.form.reset .form-header div.show-reset {
+  color: #f1575b;
+}
+
+.form .form-elements {
+  margin-top: 15px;
+}
+
+.form .form-elements .form-element {
+  height: 50px;
+  opacity: 1;
+  overflow: hidden;
+  transition: all 500ms ease-in-out;
+}
+
+.form .form-elements input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin: 5px 0px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #222;
+  background: #f5f5f5;
+}
+
+/* .form .form-elements button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 5px;
+  border-radius: 10px;
+  background: #f5f5f5;
+} */
+.form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 5px;
+  border-radius: 10px;
+  background: #f1575b;
+  color: #f5f5f5;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.form .arrow {
+  position: absolute;
+  top: 51px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #f5f5f5;
+}
+.form.signup .arrow {
+  left: calc(calc(100% / 3) / 2);
+}
+.form.signin .arrow {
+  left: calc(calc(100% / 9) + calc(calc(100% / 9) / 2.2));
+}
+.form.reset .arrow {
+  left: calc(calc(calc(100% / 3) * 2) + calc(calc(100% / 3) / 3));
+}
+
+.form.signin .form-elements > div:nth-child(3) {
+  height: 0px;
+  opacity: 0;
+}
+.form.reset .form-elements > div:nth-child(2),
+.form.reset .form-elements > div:nth-child(3) {
+  height: 0px;
+  opacity: 0;
 }

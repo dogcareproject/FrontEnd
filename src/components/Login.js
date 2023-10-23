@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import { useAuth } from "./AuthContext";
 
 const Login = () => {
+  const { login } = useAuth();
+
   const navigation = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -53,6 +56,8 @@ const Login = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    login();
+
     if (userId === "" || password === "") {
       window.alert("아이디 또는 비밀번호를 입력해주세요.")
       setLoginFailed(true);
@@ -92,45 +97,70 @@ const Login = () => {
       setErrorMessage("비밀번호가 일치하지 않습니다.");
       return;
     }
-    // 서버에서 모든 회원 목록을 가져옴
-    const token = localStorage.getItem('token');
-    axios.get('/getMemberList', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
+
+    axios.post('/adminRegister', {
+      account: regiUserId,
+      password: regiPassword,
+      name: name,
+      email: email,
     })
       .then(response => {
-        // 중복 아이디 검사
-        const memberList = response.data;
-        if (isDuplicateId(memberList, regiUserId)) {
-          window.alert("이미 사용 중인 아이디입니다.")
-        } else {
-          // 중복 아이디가 아닌 경우 회원가입 요청 보냄
-          axios.post('/adminRegister', {
-            account: regiUserId,
-            password: regiPassword,
-            name: name,
-            email: email,
-          })
-            .then(response => {
-              if (response.status === 200) {
-                setData(response.data);
-                setLoginPage(true);
-                window.location.reload();
-              }
-              setLoading(false);
-            })
-            .catch(error => {
-              console.error(error);
-              setLoading(false);
-            });
+        if (response.status === 200) {
+          setData(response.data);
+          setLoginPage(true);
+          window.location.reload();
         }
+        setLoading(false);
       })
       .catch(error => {
         console.error(error);
         setLoading(false);
       });
   };
+
+  // const onRegiSubmitHandler = (e) => {
+  //   e.preventDefault();
+  //   if (regiPassword !== confirmPassword) {
+  //     setErrorMessage("비밀번호가 일치하지 않습니다.");
+  //     return;
+  //   }
+  //   const token = localStorage.getItem('token');
+
+  //   axios.get('/getMemberList', {
+  //     headers: {
+  //       Authorization: `Bearer ${token}`,
+  //     }
+  //   })
+  //     .then(response => {
+  //       const memberList = response.data;
+  //       if (isDuplicateId(memberList, regiUserId)) {
+  //         window.confirm("이미 사용 중인 아이디입니다.")
+  //       } else {
+  //         axios.post('/adminRegister', {
+  //           account: regiUserId,
+  //           password: regiPassword,
+  //           name: name,
+  //           email: email,
+  //         })
+  //           .then(response => {
+  //             if (response.status === 200) {
+  //               setData(response.data);
+  //               setLoginPage(true);
+  //               window.location.reload();
+  //             }
+  //             setLoading(false);
+  //           })
+  //           .catch(error => {
+  //             console.error(error);
+  //             setLoading(false);
+  //           });
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error(error);
+  //       setLoading(false);
+  //     });
+  // };
 
   return (
     <div className="section">
@@ -149,16 +179,32 @@ const Login = () => {
                         <h4 className="mb-4 pb-3">Log In</h4>
                         <form onSubmit={onSubmitHandler}>
                           <div className="form-group">
-                            <input type="text" name="logemail" className="form-style" placeholder="Your ID" id="logemail" autoComplete="off" onChange={onUserIdHandler} />
+                            <input
+                              type="text"
+                              name="logemail"
+                              className="form-style"
+                              placeholder="Your ID"
+                              id="logemail"
+                              autoComplete="off"
+                              onChange={onUserIdHandler} />
                             <i className="input-icon uil uil-at"></i>
                           </div>
                           <div className="form-group mt-2">
-                            <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autoComplete="off" onChange={onPasswordHandler} />
+                            <input
+                              type="password"
+                              name="logpass"
+                              className="form-style"
+                              placeholder="Your Password"
+                              id="logpass"
+                              autoComplete="off"
+                              onChange={onPasswordHandler} />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
                           <button type="submit" className="btn mt-4">로그인</button>
                         </form>
-                        <p className="mb-0 mt-4 text-center"><a href="#0" className="link">Forgot your password?</a></p>
+                        <p className="mb-0 mt-4 text-center">
+                          <a href="/findInfo" className="link">Forgot your info?</a>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -168,23 +214,58 @@ const Login = () => {
                         <h4 className="mb-4 pb-3">Sign Up</h4>
                         <form onSubmit={onRegiSubmitHandler}>
                           <div className="form-group mt-2">
-                            <input type="text" name="logpass" className="form-style" placeholder="아이디" id="logid" autoComplete="off" onChange={onRegiUserIdHandler} />
+                            <input
+                              type="text"
+                              name="logpass"
+                              className="form-style"
+                              placeholder="아이디"
+                              id="logid"
+                              autoComplete="off"
+                              onChange={onRegiUserIdHandler} />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
                           <div className="form-group mt-2">
-                            <input type="password" name="logpass" className="form-style" placeholder="비밀번호" id="logpass" autoComplete="off" onChange={onRegiPasswordHandler} />
+                            <input
+                              type="password"
+                              name="logpass"
+                              className="form-style"
+                              placeholder="비밀번호"
+                              id="logpass"
+                              autoComplete="off"
+                              onChange={onRegiPasswordHandler} />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
                           <div className="form-group mt-2">
-                            <input type="password" name="logpass" className="form-style" placeholder="비밀번호 확인" id="logpass" autoComplete="off" onChange={onConfirmPasswordHandler} />
+                            <input
+                              type="password"
+                              name="logpass"
+                              className="form-style"
+                              placeholder="비밀번호 확인"
+                              id="logpass"
+                              autoComplete="off"
+                              onChange={onConfirmPasswordHandler} />
                             <i className="input-icon uil uil-lock-alt"></i>
                           </div>
                           <div className="form-group mt-2">
-                            <input type="email" name="logemail" className="form-style" placeholder="이메일" id="logemail" autoComplete="off" onChange={onEmailHandler} />
+                            <input
+                              type="email"
+                              name="logemail"
+                              className="form-style"
+                              placeholder="이메일"
+                              id="logemail"
+                              autoComplete="off"
+                              onChange={onEmailHandler} />
                             <i className="input-icon uil uil-at"></i>
                           </div>
                           <div className="form-group mt-2">
-                            <input type="text" name="logname" className="form-style" placeholder="이름" id="logname" autoComplete="off" onChange={onNameHandler} />
+                            <input
+                              type="text"
+                              name="logname"
+                              className="form-style"
+                              placeholder="이름"
+                              id="logname"
+                              autoComplete="off"
+                              onChange={onNameHandler} />
                             <i className="input-icon uil uil-user"></i>
                           </div>
                           <button type="submit" className="btn mt-4">회원가입</button>

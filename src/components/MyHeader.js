@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "./AuthContext";
 
 const MyHeader = () => {
-  const [loginOut, setLoginOut] = useState(true);
+  const { isLoggedIn, logout } = useAuth();
 
   const handleLogout = () => {
-    setLoginOut(true);
+    const confirmed = window.confirm("로그아웃하시겠습니까?");
+    if (confirmed) {
+      logout();
+      window.location.reload();
+      localStorage.clear();
+    }
   };
-
 
   return (
     <div className="MyHeader">
-      <h1><Link className="navbarMain" to={'/'}>멍멍케어</Link></h1>
+      <h1>
+        <Link className="navbarMain" to={'/'}>
+          멍멍케어
+        </Link>
+      </h1>
       <div className="logBtn">
-        {loginOut ? (
+        {isLoggedIn ? (
+          <button onClick={handleLogout}>로그아웃</button>
+        ) : (
           <Link to={'/login'}>
             <button>로그인</button>
           </Link>
-        ) : (
-          <button onClick={handleLogout}>로그아웃</button>
         )}
-      </div >
-    </div >
-  )
+      </div>
+    </div>
+  );
 };
 
 export default MyHeader;
