@@ -80,7 +80,7 @@ const FindAuth = () => {
           <div className="form-element">
             <input
               type="email"
-              placeholder="이매일"
+              placeholder="이메일"
               onChange={onEmailHandler}
             />
           </div>

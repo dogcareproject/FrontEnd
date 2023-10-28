@@ -23,7 +23,7 @@ const UserItem = ({ id, account, name, email }) => {
     e.preventDefault();
     axios.post('/admin/banMember', {
       id: id,
-      ban: dayCount,
+      bantime: dayCount,
     }, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -44,16 +44,17 @@ const UserItem = ({ id, account, name, email }) => {
     e.preventDefault();
 
     if (window.confirm('확인을 누르면 회원이 탈퇴됩니다.')) {
-      axios.delete(`/user/withdrawal/${id}`, {
+      axios.post('/admin/withdrawal', {
+        id: id,
+      }, {
         headers: {
           Authorization: `Bearer ${token}`,
         }
       })
         .then(response => {
-          const userData = response.data.find(user => parseInt(user.id) === parseInt(id));
-          if (userData) {
-            localStorage.clear();
-            navigation('/userList');
+          if (response.status === 200) {
+            console.log(response.status);
+            window.location.reload();
           }
         })
         .catch(error => {
@@ -88,7 +89,7 @@ const UserItem = ({ id, account, name, email }) => {
             <span></span>
             수정하기
           </a>
-          <a href={`/userDelete/${id}`} onClick={onUserDeleteHandler}>
+          <a href="" onClick={onUserDeleteHandler}>
             <span></span>
             <span></span>
             <span></span>
