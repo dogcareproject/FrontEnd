@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { useAuth } from "./AuthContext";
 
+const apiUrl = "http://ceprj.gachon.ac.kr:60003";
+
 const Login = () => {
   const { login } = useAuth();
 
@@ -63,7 +65,7 @@ const Login = () => {
       setLoginFailed(true);
       return;
     }
-    axios.post('/login', {
+    axios.post(`${apiUrl}/login`, {
       account: userId,
       password: password,
       headers: { 'X-Requested-With': 'XMLHttpRequest' }
