@@ -45,7 +45,7 @@ const UserItem = ({ id, account, name, email }) => {
 
     if (window.confirm('확인을 누르면 회원이 탈퇴됩니다.')) {
       axios.post('/admin/withdrawal', {
-        id: id,
+        memberId: id,
       }, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -64,26 +64,25 @@ const UserItem = ({ id, account, name, email }) => {
     }
   }
 
-  return <div className="UserItem">
-    <div class="card" style={{ width: '18rem' }}>
-      <div class="card-header">
+  return <div>
+    <div style={{ width: '18rem' }}>
+      <div>
         {account}
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">{account}</li>
-        <li class="list-group-item">{name}</li>
-        <li class="list-group-item">{email}</li>
+      <ul>
+        <li>{account}</li>
+        <li>{name}</li>
+        <li>{email}</li>
       </ul>
-      <div class="card-body">
-        <a href={`/userEdit/${id}`} className="card-link">수정하기</a>
-        <a onClick={onUserDeleteHandler} className="card-link">회원강제탈퇴</a>
+      <div>
+        <a onClick={onUserDeleteHandler}>회원강제탈퇴</a>
       </div>
       <form onSubmit={onUserBanHandler}>
-        <div className="frame">
-          <div className="">
-            <input id="input1" type="text" placeholder="정지 일수" onChange={dayCountChange} />
+        <div >
+          <div>
+            <input id="input12" type="text" placeholder="정지 일수" onChange={dayCountChange} />
           </div>
-          <button type="submit" className="custom-btn btn-4">회원 정지</button>
+          <button type="submit">회원 정지</button>
         </div>
       </form>
     </div>

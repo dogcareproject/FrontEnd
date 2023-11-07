@@ -55,25 +55,20 @@ function Pet() {
   };
 
   return (
-    <div className="User">
-      <div className="form signup">
-        <div className="form-header">
-          <div className="show-signup" onClick={handleSignupClick}>사용자 정보</div>
-          <div className="show-signin" onClick={handleSigninClick}>강아지 정보</div>
+    <div>
+      <div>
+        <div onClick={handleSignupClick}>사용자 정보</div>
+        <div onClick={handleSigninClick}>강아지 정보</div>
+      </div>
+      <div >
+        <div>
+          <input type="text" placeholder={petName} disabled />
         </div>
-        <div className="arrow"></div>
-        <div className="form-elements">
-          <>
-            <div className="form-element">
-              <input type="text" placeholder={petName} disabled />
-            </div>
-            <div className="form-element">
-              <input type="text" placeholder={petWeight} disabled />
-            </div>
-            <div className="form-element">
-              <input type="text" placeholder={petAge} disabled />
-            </div>
-          </>
+        <div>
+          <input type="text" placeholder={petWeight} disabled />
+        </div>
+        <div>
+          <input type="text" placeholder={petAge} disabled />
         </div>
       </div>
     </div>

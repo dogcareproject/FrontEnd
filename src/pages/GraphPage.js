@@ -3,6 +3,22 @@ import Highcharts from 'highcharts';
 import axios from 'axios';
 
 const DataGraph = () => {
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    axios.get('/getMemberList', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
+      .then(response => {
+
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
+
   useEffect(() => {
     Highcharts.setOptions({
       colors: ['rgba(5,141,199,0.5)', 'rgba(80,180,50,0.5)', 'rgba(237,86,27,0.5)'],
@@ -26,7 +42,7 @@ const DataGraph = () => {
 
     ];
 
-    const dateData = ['23년 10월 1일', '23년 10월 2일', '23년 10월 3일', '23년 10월 4일']
+
 
     const getData = (data, sportName) => {
       const temp = [];
@@ -69,7 +85,7 @@ const DataGraph = () => {
                 text: '',
               },
               labels: {
-                format: `${dateData}`,
+                format: 'value',
               },
               startOnTick: true,
               endOnTick: true,

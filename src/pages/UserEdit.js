@@ -56,7 +56,7 @@ const UserEdit = () => {
     e.preventDefault();
     const token = localStorage.getItem('token');
     axios.put('/user/infoChange', {
-      id: id,
+      memberId: id,
       password: password,
       name: name,
       email: email,
@@ -79,35 +79,35 @@ const UserEdit = () => {
       });
   }
 
-  return <div className="UserEdit">
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-3 col-md-2"></div>
-        <div className="col-lg-6 col-md-8 edit-box">
-          <div className="col-lg-12 login-form">
-            <div className="col-lg-12 login-form">
+  return <div>
+    <div>
+      <div>
+        <div></div>
+        <div>
+          <div>
+            <div>
               <form onSubmit={onUserEditHandler}>
-                <div className="form-group">
-                  <label className="form-control-label">아이디</label>
-                  <input type="text" placeholder={originalUserId} className="form-control" disabled />
+                <div>
+                  <label>아이디</label>
+                  <input type="text" placeholder={originalUserId} disabled />
                 </div>
-                <div className="form-group">
-                  <label className="form-control-label">비밀번호</label>
-                  <input type="password" className="form-control" onChange={onPasswordHandler} />
+                <div>
+                  <label>비밀번호</label>
+                  <input type="password" onChange={onPasswordHandler} />
                 </div>
-                <div className="form-group">
-                  <label className="form-control-label">이름</label>
-                  <input type="text" placeholder={originalName} className="form-control" onChange={onNameHandler} />
+                <div>
+                  <label>이름</label>
+                  <input type="text" placeholder={originalName} onChange={onNameHandler} />
                 </div>
-                <div className="form-group">
-                  <label className="form-control-label">이메일</label>
-                  <input type="email" placeholder={originalEmail} className="form-control" onChange={onEmailHandler} />
+                <div>
+                  <label>이메일</label>
+                  <input type="email" placeholder={originalEmail} onChange={onEmailHandler} />
                 </div>
-                <div className="col-lg-12 loginbttm">
-                  <div className="col-lg-6 login-btm login-text">
+                <div>
+                  <div>
                   </div>
-                  <div className="col-lg-6 login-btm login-button">
-                    <button type="submit" className="btn btn-outline-primary">수정 완료</button>
+                  <div>
+                    <button type="submit">수정 완료</button>
                   </div>
                 </div>
               </form>

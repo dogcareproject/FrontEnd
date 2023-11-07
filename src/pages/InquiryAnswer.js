@@ -15,6 +15,8 @@ const InquiryAnswer = () => {
     setAnswer(e.currentTarget.value);
   }
 
+  const jsonData = JSON.stringify(data);
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios.get('/admin/getInquiries', {
@@ -37,7 +39,8 @@ const InquiryAnswer = () => {
 
     e.preventDefault()
     axios.post('/admin/inquiryAnswer', {
-      memberId: id
+      memberid: id,
+      message: answer
     }, {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -56,11 +59,11 @@ const InquiryAnswer = () => {
 
   return <div>
     <form onSubmit={inquiryAnswerHandelr}>
-      <div className="frame">
-        <div className="">
-          <input id="input1" type="text" value={data} onChange={answerhandler} />
+      <div>
+        <div >
+          <textarea cols="50" rows="10" onChange={answerhandler} />
         </div>
-        <button type="submit" className="custom-btn btn-4">답변 보내기</button>
+        <button type="submit">답변 보내기</button>
       </div>
     </form>
   </div>

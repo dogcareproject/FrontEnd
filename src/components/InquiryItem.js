@@ -11,13 +11,13 @@ const InquiryItem = ({ inquiryId, account, title, content, email }) => {
 
   return (
     <div>
-      <div className="InquiryItem position-relative">
-        <blockquote className="default" onClick={goDetail}>
-          <h3><span className="Cdefault">{title}</span> - {email}</h3>
+      <div>
+        <blockquote onClick={goDetail}>
+          <h3><span>{title}</span> - {email}</h3>
           <p>{content}</p>
         </blockquote>
-        <div className="frame position-absolute bottom-0 end-0">
-          <button className="custom-btn btn-4" onClick={() => navigation(`/inquiryAnswer/${inquiryId}`)}>답변 달기</button>
+        <div>
+          <button onClick={() => navigation(`/inquiryAnswer/${inquiryId}`)}>답변 달기</button>
         </div>
       </div>
     </div>

@@ -83,22 +83,22 @@ const User = () => {
     navigation(`/pet/${id}`);
   };
 
-  return <div className="User">
-    <div className="form signup">
-      <div className="form-header">
-        <div className="show-signup" onClick={handleSignupClick}>사용자 정보</div>
-        <div className="show-signin" onClick={handleSigninClick}>강아지 정보</div>
+  return <div>
+    <div>
+      <div>
+        <div onClick={handleSignupClick}>사용자 정보</div>
+        <div onClick={handleSigninClick}>강아지 정보</div>
       </div>
-      <div className="arrow"></div>
-      <div className="form-elements">
+      <div></div>
+      <div>
         <>
-          <div className="form-element">
+          <div>
             <input type="text" placeholder={originalUserId} disabled />
           </div>
-          <div className="form-element">
+          <div>
             <input type="text" placeholder={originalName} disabled />
           </div>
-          <div className="form-element">
+          <div>
             <input type="text" placeholder={originalEmail} disabled />
           </div>
         </>

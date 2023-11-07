@@ -9,6 +9,7 @@ const Inquiry = () => {
   const navigation = useNavigate();
 
   const [date, setDate] = useState("");
+  const [account, setAccount] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -25,6 +26,7 @@ const Inquiry = () => {
       .then(response => {
         const inquiryData = response.data.find(inquiry => parseInt(inquiry.inquiryId) === parseInt(id));
         if (inquiryData) {
+          setAccount(inquiryData.account);
           setDate(inquiryData.createTime);
           setTitle(inquiryData.title);
           setContent(inquiryData.content);
@@ -41,18 +43,18 @@ const Inquiry = () => {
     {loading ? (
       <p>데이터를 불러오는 중...</p>
     ) : (<div>
-      <div className="Inquiry-detail">
+      <div >
         <div>
-          <h4>{date}</h4>
-          <input type="text" value={title} disabled />
+          <h4>{title}</h4>
+          <span>{account}</span>
         </div>
         <div>
           <textarea type="text" disabled>
             {content}
           </textarea>
         </div>
-        <div className="frame">
-          <button class="custom-btn btn-4" onClick={() => navigation(`/inquiryAnswer/${id}`)}>답변 달기</button>
+        <div>
+          <button onClick={() => navigation(`/inquiryAnswer/${id}`)}>답변 달기</button>
         </div>
       </div>
     </div>
