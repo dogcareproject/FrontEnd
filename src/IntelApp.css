@@ -1,0 +1,671 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yeon+Sung&display=swap');
+
+.App {
+  /* width: 100%; */
+  /* height: 100%; */
+  padding-bottom: 56.25%;
+  /* background-image: url('./image/11.png'); */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-size: 2em;
+
+  color: black;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.homeImg {
+  float: right;
+
+  margin-right: 200px;
+  margin-top: 50px;
+}
+
+.homeImg2 {
+  position: relative;
+  bottom: 50px;
+
+  float: right;
+
+  margin-top: 50px;
+  margin-left: 230px;
+}
+
+.Home {
+  position: relative;
+  float: left;
+
+  left: 200px;
+  margin-left: 150px;
+  margin-top: 130px;
+}
+
+.Home h2 {
+  font-weight: bold;
+}
+
+.Home p {
+  font-size: 24px;
+}
+
+.MyHeader {
+  padding-top: 5px;
+  padding-left: 25px;
+  padding-bottom: 5px;
+
+  background-color: #ffbf00;
+
+  font-size: 22px;
+}
+
+.logBtn {
+  font-family: 'Nanum Pen Script';
+
+  position: absolute;
+  right: 0px;
+  top: 10px;
+
+  margin-right: 20px;
+}
+
+.logBtn button {
+  top: 10px;
+  font-size: 22px;
+  border: none;
+  border-radius: 2px;
+  background: none;
+}
+
+/* nav 밑에 위치 이상하면 여기 */
+.navbar {
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  background-color: #ffbf00;
+}
+
+.navbar .navbarMenu {
+  font-family: 'Nanum Pen Script';
+  margin-left: 50px;
+  font-size: 28px;
+}
+
+.navbar button {
+  font-family: 'Nanum Pen Script';
+  font-size: 25px;
+  position: relative;
+  top: -80px;
+  cursor: pointer;
+}
+
+.Login {
+  position: relative;
+  left: 43%;
+  /* justify-content: center; */
+  top: 150px;
+  font-family: 'Nanum Pen Script';
+  min-height: 100vh;
+  margin: 0px auto;
+
+  color: black;
+}
+
+.Login h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.Login input {
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  background: none;
+  text-decoration: solid;
+  font-size: 30px;
+}
+
+.Login input::placeholder {
+  color: rgb(32, 5, 5);
+}
+
+.Login button {
+  margin-left: 130px;
+
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background: none;
+  font-size: 30px;
+}
+
+.demo-loadmore-list {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#input12 {
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+
+  font-size: 15px;
+
+  width: 120px;
+}
+
+#btn12 {
+  border: none;
+}
+
+.demo-loadmore-list {
+  font-size: 15px;
+}
+
+.demo-loadmore-list button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.pagination {
+  position: relative;
+  left: 75%;
+  margin-top: 25px;
+}
+
+.InquiryList {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.InquiryList h2 {
+  margin-top: 50px;
+  position: relative;
+  font-weight: bold;
+  left: 10%;
+}
+
+.search-input {
+  position: relative;
+  left: 70%;
+
+  margin-top: 50px;
+  margin-bottom: 10px;
+}
+
+.search-input input {
+  margin-right: 8px;
+
+  font-size: 20px;
+
+  width: 195px;
+  border: none;
+  border-bottom: solid 1px black;
+}
+
+.search-input button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  box-shadow: 0.5px 0.5px 0.5px #ccac4c;
+
+  font-size: 20px;
+
+  padding: 3px;
+}
+
+.Inquiry {
+  width: 60%;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.InquiryList div {
+  font-size: 24px;
+}
+
+.Inquiry span {
+  font-size: 18px;
+}
+
+.Inquiry p {
+  height: 320px;
+  font-size: 18px;
+}
+
+.Inquiry span:last-child {
+  float: right;
+}
+
+.Inquiry button {
+  cursor: pointer;
+
+  float: right;
+  border: none;
+  background: none;
+}
+
+.InquiryAnswer {
+  min-height: 100vh;
+}
+
+.InquiryAnswer h3 {
+  text-align: center;
+}
+
+.InquiryAnswer textarea {
+  border: none;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  width: 350px;
+  /* border: none; */
+
+  height: 300px;
+  width: 60%;
+
+  margin-top: 20px;
+
+  left: 20%;
+  position: relative;
+}
+
+.InquiryAnswer button {
+  cursor: pointer;
+  margin-top: 40px;
+
+  font-size: 24px;
+
+  position: relative;
+  right: -73%;
+
+  border: none;
+  background: none;
+}
+
+.UserList img {
+  position: relative;
+  left: 20%;
+}
+
+.UserList h2 {
+  margin-top: 50px;
+  position: relative;
+  font-weight: bold;
+  left: 10%;
+}
+
+.UserList div {
+  font-size: 24px;
+}
+
+.descripition {
+  margin-bottom: 30px;
+
+  position: relative;
+  left: 10%;
+}
+
+.dropdown {
+  top: 10px;
+  left: 30px;
+
+  margin-bottom: 20px;
+}
+
+.Graph h2 {
+  margin-top: 50px;
+  position: relative;
+  font-weight: bold;
+  left: 10%;
+}
+
+.Footer {
+  padding-top: 20px;
+  background-color: #ffbf00;
+}
+
+.Footer .Footer-description {
+  margin-top: 50px;
+  margin-left: 100px;
+  padding-bottom: 20px;
+
+  font-size: 18px;
+}
+
+/* ----------------------------------------------- */
+/* 스타일 추가 */
+.user-card {
+  font-family: 'Nanum Pen Script';
+  font-size: 22px;
+
+  position: fixed;
+
+  border: none;
+  border-radius: 5px;
+
+  overflow: hidden;
+  margin: 100px auto;
+  transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+
+  width: 30%;
+  max-height: 60%;
+  overflow-y: auto;
+
+  top: 2%;
+  left: 35%;
+  transform: translate(3%, 3%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.user-card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: translateY(-0.001px);
+}
+
+.close-btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  position: relative;
+  float: right;
+  cursor: pointer;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+html {
+  height: 100%;
+}
+
+ol.large-numbers {
+  counter-reset: li; /* Initiate a counter */
+  margin-left: 0; /* Remove the default left margin */
+  padding-left: 0; /* Remove the default left padding */
+  line-height: 1.25;
+}
+ol.large-numbers > li {
+  position: relative; /* Create a positioning context */
+  list-style: none; /* Disable the normal item numbering */
+  margin: 1rem 0 1rem 2rem;
+  padding: 0 0 0 1rem;
+}
+ol.large-numbers > li:before {
+  content: counter(li); /* Use the counter as content */
+  counter-increment: li; /* Increment the counter by 1 */
+  /* Position and style the number */
+  position: absolute;
+  top: -0.3em; /* move numbers up or down as needed */
+  left: -0.9em;
+  width: 1em;
+  text-align: center;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 2em;
+  font-weight: bold;
+  font-weight: 700;
+  color: #a8caba;
+  text-shadow: 3px 3px 0 #838689, -1px -1px 0 #838689, 1px -1px 0 #838689,
+    -1px 1px 0 #838689, 1px 1px 0 #838689;
+}
+ol.large-numbers li:hover:before {
+  color: #ebe3aa;
+}
+
+/* ----------------------------------------------------- */
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+nav {
+  display: block;
+  font-family: 'Nanum Pen Script';
+  font-size: 32px;
+
+  background: #ffbf00;
+}
+
+.menu {
+  display: block;
+}
+
+.menu li {
+  display: inline-block;
+  position: relative;
+  z-index: 100;
+}
+
+.menu li:first-child {
+  margin-left: 0;
+}
+
+.menu li a {
+  font-weight: 600;
+  font-size: 32px;
+  text-decoration: none;
+  padding: 20px 15px;
+  display: block;
+  color: black;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.menu li a:hover,
+.menu li:hover > a {
+  color: black;
+  background: #fcca41;
+  border-radius: 15px;
+}
+
+.menu ul {
+  visibility: hidden;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  width: 170px;
+  position: absolute;
+  left: 0px;
+  background: #fff;
+  z-index: 99;
+  transform: translate(0, 20px);
+  transition: all 0.2s ease-out;
+}
+
+.menu ul:after {
+  bottom: 100%;
+  left: 20%;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.menu ul li {
+  display: block;
+  float: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li a {
+  font-weight: normal;
+  display: block;
+  color: #797979;
+  background: #fff;
+
+  font-size: 18px;
+}
+
+.menu ul li a:hover,
+.menu ul li:hover > a {
+  background: #fcca41;
+  color: black;
+}
+
+.menu li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.menu ul ul {
+  left: 169px;
+  top: 0px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(20px, 20px);
+  transition: all 0.2s ease-out;
+}
+
+.menu ul ul:after {
+  left: -6px;
+  top: 10%;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-right-color: #fff;
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+.menu li > ul ul:hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.responsive-menu {
+  display: none;
+  width: 100%;
+  padding: 20px 15px;
+  background: #374147;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.responsive-menu:hover {
+  background: #374147;
+  color: #fff;
+  text-decoration: none;
+}
+
+a.homer {
+  background: #9ca3da;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .mainWrap {
+    width: 768px;
+  }
+
+  .menu ul {
+    top: 37px;
+  }
+
+  .menu li a {
+    font-size: 12px;
+  }
+
+  a.homer {
+    background: #374147;
+  }
+}
+
+@media (max-width: 767px) {
+  .mainWrap {
+    width: auto;
+    padding: 50px 20px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .responsive-menu {
+    display: block;
+  }
+
+  nav {
+    margin: 0;
+    background: none;
+  }
+
+  .menu li {
+    display: block;
+    margin: 0;
+  }
+
+  .menu li a {
+    background: #fff;
+    color: #797979;
+  }
+
+  .menu li a:hover,
+  .menu li:hover > a {
+    background: #9ca3da;
+    color: #fff;
+  }
+
+  .menu ul {
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: initial;
+  }
+
+  .menu li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    transform: initial;
+  }
+
+  .menu ul ul {
+    left: 0;
+    transform: initial;
+  }
+
+  .menu li > ul ul:hover {
+    transform: initial;
+  }
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 320px) {
+}

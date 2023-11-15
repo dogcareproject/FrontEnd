@@ -11,11 +11,16 @@ const InquiryAnswer = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [account, setAccount] = useState("");
+  const [memberId, setMemberId] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+
+  console.log(content);
+
   const answerhandler = (e) => {
     setAnswer(e.currentTarget.value);
   }
-
-  const jsonData = JSON.stringify(data);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -25,6 +30,11 @@ const InquiryAnswer = () => {
       }
     })
       .then(response => {
+        const inquiryData = response.data.find(inquiry => parseInt(inquiry.inquiryId) === parseInt(id));
+        setAccount(inquiryData.member.account);
+        setMemberId(inquiryData.member.id);
+        setTitle(inquiryData.title);
+        setContent(inquiryData.content);
         setData(response.data);
         setLoading(false);
       })
@@ -35,11 +45,9 @@ const InquiryAnswer = () => {
   }, []);
 
   const inquiryAnswerHandelr = (e) => {
-    console.log("check");
-
     e.preventDefault()
     axios.post('/admin/inquiryAnswer', {
-      memberid: id,
+      memberId: memberId,
       message: answer
     }, {
       headers: {
@@ -54,16 +62,18 @@ const InquiryAnswer = () => {
       .catch(error => {
         console.error(error);
       })
+    navigation('/inquiryList');
   };
 
 
   return <div>
-    <form onSubmit={inquiryAnswerHandelr}>
+    <form className="InquiryAnswer" onSubmit={inquiryAnswerHandelr}>
       <div>
         <div >
-          <textarea cols="50" rows="10" onChange={answerhandler} />
+          <h5>{account} - 답변</h5>
+          <textarea style={{ fontSize: "18px" }} onChange={answerhandler}></textarea>
         </div>
-        <button type="submit">답변 보내기</button>
+        <button style={{ fontSize: "20px" }} type="submit"><i class="bi bi-envelope-paper-fill"></i>&nbsp;&nbsp;답변 보내기</button>
       </div>
     </form>
   </div>
