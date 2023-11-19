@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Avatar, Button, List, Skeleton, Pagination } from 'antd';
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom';
@@ -16,37 +16,28 @@ const UserList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedUser, setSelectedUser] = useState(null);
   const [selectedUserPets, setSelectedUserPets] = useState("");
+
   const token = localStorage.getItem('token');
 
-  const dayCountChange = (e) => {
-    setDayCount(e.currentTarget.value);
-  }
+  const cardRef = useRef(null);
+  const overlayRef = useRef(null);
+
+  const handleOutsideClick = (e) => {
+    if (overlayRef.current && !overlayRef.current.contains(e.target) && !cardRef.current.contains(e.target)) {
+      setSelectedUser(null);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   const handleCardClose = () => {
     setSelectedUser(null);
   };
-
-  const onUserBanHandler = (id) => {
-    axios.post('/admin/banMember', {
-      id: id,
-      bantime: dayCount,
-    }, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
-    })
-      .then(response => {
-        if (response.status === 200) {
-          console.log(response.status);
-          navigation('/');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        console.log(id);
-      })
-  }
-
 
 
   const onUserDeleteHandler = (id) => {
@@ -212,10 +203,13 @@ const UserList = () => {
       />
 
       {selectedUser && (
-        <div className="user-card" style={{ cursor: "pointer" }}>
+        <div className="user-card" ref={cardRef} style={{ cursor: "pointer" }}>
           <h2>"{selectedUser.account}"님의 반려견 정보</h2>
-          {renderPetInfo()}
-          <button className="close-btn" onClick={handleCardClose}><i class="bi bi-x-square"></i>&nbsp;&nbsp;닫기</button>
+          <>
+            <div className="overlay" ref={overlayRef}></div>
+            {renderPetInfo()}
+            <button className="close-btn" onClick={handleCardClose}><i class="bi bi-x-square"></i>&nbsp;&nbsp;닫기</button>
+          </>
         </div>
       )}
     </div>

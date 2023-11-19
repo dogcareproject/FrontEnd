@@ -1,92 +1,35 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import gsap from "gsap";
+import { GSDevTools } from "gsap/GSDevTools";
 
+import "gsap/scrambleText";
 
-const UserItem = ({ id, account, name, email }) => {
-  const navigation = useNavigate();
+const MyComponent = () => {
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { duration: 2, ease: "none" } });
 
-  const [dayCount, setDayCount] = useState("");
+    tl.to("#scramble", { duration: 3, scrambleText: { text: "ScrambleText allows you to animate the scrambling of text.", chars: "lowerCase", revealDelay: 0.5, tweenLength: false } })
+      .to("#charsCustom", { duration: 4, scrambleText: { text: "Specify a set of characters to scramble like 'XO'", chars: "XO", revealDelay: 1, tweenLength: false, speed: 0.4 } })
+      .to("#charsNumbers", { duration: 4, scrambleText: { text: "or use only numbers,", chars: "0123456789" } })
+      .to("#charsUppercase", { scrambleText: { text: "UPPERCASE", chars: "upperCase", speed: 0.3 } })
+      .to("#charsLowercase", { scrambleText: { text: "or lowercase.", chars: "lowerCase", speed: 0.3 } })
+      .to("#newClass", { scrambleText: { text: "Even apply a custom class to the text.", chars: "lowerCase", speed: 0.3, newClass: "orange", revealDelay: 0.5, tweenLength: false } });
 
-  // const goUserDetail = (e) => {
-  //   e.preventDefault();
-  //   navigation(`/userDetail/${id}`);
-  // }
+    GSDevTools.create({ animation: tl, minimal: true });
+  }, []);
 
-  const dayCountChange = (e) => {
-    setDayCount(e.currentTarget.value);
-  }
-
-  const token = localStorage.getItem('token');
-
-  const onUserBanHandler = (e) => {
-    e.preventDefault();
-    axios.post('/admin/banMember', {
-      id: id,
-      bantime: dayCount,
-    }, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      }
-    })
-      .then(response => {
-        if (response.status === 200) {
-          console.log(response.status);
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        console.log(id);
-      })
-  }
-
-  const onUserDeleteHandler = (e) => {
-    e.preventDefault();
-
-    if (window.confirm('확인을 누르면 회원이 탈퇴됩니다.')) {
-      axios.post('/admin/withdrawal', {
-        memberId: id,
-      }, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        }
-      })
-        .then(response => {
-          if (response.status === 200) {
-            console.log(response.status);
-            // window.location.reload();
-            navigation('/userList');
-          }
-        })
-        .catch(error => {
-          console.error(error);
-        });
-    }
-  }
-
-  return <div>
-    <div style={{ width: '18rem' }}>
-      <div>
-        {account}
+  return (
+    <div className="demo">
+      <div id="textblock">
+        <div id="scramble"></div>
+        <span id="charsCustom"></span>
+        <span id="charsNumbers"></span><br />
+        <span id="charsUppercase"></span>
+        <span id="charsLowercase"></span>
+        <div id="newClass"></div>
       </div>
-      <ul>
-        <li>{account}</li>
-        <li>{name}</li>
-        <li>{email}</li>
-      </ul>
-      <div>
-        <a onClick={onUserDeleteHandler}>회원강제탈퇴</a>
-      </div>
-      <form onSubmit={onUserBanHandler}>
-        <div >
-          <div>
-            <input id="input12" type="text" placeholder="정지 일수" onChange={dayCountChange} />
-          </div>
-          <button type="submit">회원 정지</button>
-        </div>
-      </form>
     </div>
-  </div>
+  );
 };
 
-export default UserItem;
+export default MyComponent;

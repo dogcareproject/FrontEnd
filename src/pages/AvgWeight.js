@@ -72,7 +72,7 @@ const AvgWeight = () => {
         },
         {
           name: '평균 체중',
-          data: avgWeights,
+          data: avgWeights.map(weight => parseFloat(weight.toFixed(2))),
         },
         {
           name: '최소 체중',

@@ -20,8 +20,8 @@ const Home = () => {
         무심코 지나치게 되는 강아지 피부와 안구의 이상 징후,<br />
         사진을 찍어 AI로 집에서 진단을 받아보세요.
       </p>
-      <p>멍멍케어와 함께 행복한 반려 생활을</p>
-      <button onClick={downloadAppFile}>내 앱 다운로드</button>
+      <p>멍멍케어와 함께 행복한 반려 생활을 즐겨보세요.</p>
+      <button onClick={downloadAppFile} className='downbtn' style={{ fontSize: "20px" }}>멍멍케어 다운로드</button>
     </div>
     <img className="homeImg2" src={process.env.PUBLIC_URL + "/img/44.png"} style={{ width: "180px", height: "250px" }} />
   </div>

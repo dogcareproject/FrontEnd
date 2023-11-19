@@ -60,7 +60,7 @@ const AvgWeight = () => {
             text: '평균 산책 시간',
           },
           labels: {
-            format: '{value} 분',
+            format: '{value:.2f} 분',
           },
         },
         {
@@ -68,7 +68,7 @@ const AvgWeight = () => {
             text: '평균 산책 거리',
           },
           labels: {
-            format: '{value} km',
+            format: '{value:.2f} km',
           },
           opposite: true,
         },
@@ -91,7 +91,7 @@ const AvgWeight = () => {
           name: '평균 산책 시간',
           data: avgWalkData.map(entry => ({
             name: entry.breed,
-            y: entry.averageWalkTime,
+            y: parseFloat(entry.averageWalkTime.toFixed(2)), // 평균 산책 시간 소수점 둘째 자리까지 표시
             color: colors[0],
           })),
         },
@@ -99,7 +99,7 @@ const AvgWeight = () => {
           name: '평균 산책 거리',
           data: avgWalkData.map(entry => ({
             name: entry.breed,
-            y: entry.averageWalkDistance,
+            y: parseFloat(entry.averageWalkDistance.toFixed(2)), // 평균 산책 거리 소수점 둘째 자리까지 표시
             color: colors[1],
           })),
           yAxis: 1,
