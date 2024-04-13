@@ -10,6 +10,8 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 
+  font-size: 2em;
+
   color: black;
 }
 
@@ -44,9 +46,19 @@ a {
   float: left;
 
   left: 200px;
-  margin-left: 80px;
+  margin-left: 150px;
   margin-top: 130px;
 }
+
+.Home h2 {
+  font-weight: bold;
+}
+
+.Home p {
+  font-size: 24px;
+}
+
+/* ---------------------------------- */
 
 .MyHeader {
   padding-top: 5px;
@@ -54,20 +66,77 @@ a {
   padding-bottom: 5px;
 
   background-color: #ffbf00;
-
-  font-size: 15px;
 }
 
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  justify-content: center;
+  align-items: center;
+}
+
+.MyHeader h1 {
+  height: 100px;
+}
+
+.MyHeader h1 span {
+  position: relative;
+  top: 0.5px;
+  display: inline-block;
+  animation: bounce 0.3s ease infinite alternate;
+  font-family: 'Titan One', cursive;
+  font-size: 40px;
+  color: #fcca41;
+  text-shadow: 0 1px 0 #000000, 0 2px 0 #000000, 0 3px 0 #000000,
+    0 4px 0 #000000, 0 5px 0 #000000, 0 6px 0 transparent, 0 7px 0 transparent,
+    0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.MyHeader h1 span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.MyHeader h1 span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.MyHeader h1 span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.MyHeader h1 span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.MyHeader h1 span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.MyHeader h1 span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.MyHeader h1 span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 #362c2c, 0 2px 0 #362c2c, 0 3px 0 #362c2c,
+      0 4px 0 #362c2c, 0 5px 0 #362c2c, 0 6px 0 #362c2c, 0 7px 0 #362c2c,
+      0 8px 0 #362c2c, 0 9px 0 #362c2c, 0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+/* --------------------------------------------- */
+
 .logBtn {
-  display: flex;
-  float: right;
+  font-family: 'Nanum Pen Script';
+
+  position: absolute;
+  right: 0px;
+  top: 10px;
 
   margin-right: 20px;
 }
 
 .logBtn button {
   top: 10px;
-  font-size: 12px;
+  font-size: 22px;
   border: none;
   border-radius: 2px;
   background: none;
@@ -81,13 +150,14 @@ a {
 }
 
 .navbar .navbarMenu {
+  font-family: 'Nanum Pen Script';
   margin-left: 50px;
-  font-size: 12px;
+  font-size: 28px;
 }
 
 .navbar button {
   font-family: 'Nanum Pen Script';
-  font-size: 20px;
+  font-size: 25px;
   position: relative;
   top: -80px;
   cursor: pointer;
@@ -97,12 +167,17 @@ a {
   position: relative;
   left: 43%;
   /* justify-content: center; */
-  top: 100px;
+  top: 150px;
   font-family: 'Nanum Pen Script';
   min-height: 100vh;
   margin: 0px auto;
 
   color: black;
+}
+
+.Login h2 {
+  font-size: 36px;
+  font-weight: bold;
 }
 
 .Login input {
@@ -111,6 +186,7 @@ a {
   margin-bottom: 10px;
   background: none;
   text-decoration: solid;
+  font-size: 30px;
 }
 
 .Login input::placeholder {
@@ -118,14 +194,13 @@ a {
 }
 
 .Login button {
-  margin-left: 120px;
+  margin-left: 130px;
 
   cursor: pointer;
   border: none;
   border-radius: 3px;
-  background-color: antiquewhite;
-  padding: 4px;
-  box-shadow: 1px 1px 3px rgb(139, 102, 102);
+  background: none;
+  font-size: 30px;
 }
 
 .demo-loadmore-list {
@@ -138,11 +213,17 @@ a {
   border-bottom: 1px solid black;
   background: none;
 
-  width: 60px;
+  font-size: 15px;
+
+  width: 120px;
 }
 
 #btn12 {
   border: none;
+}
+
+.demo-loadmore-list {
+  font-size: 15px;
 }
 
 .demo-loadmore-list button {
@@ -162,17 +243,27 @@ a {
   margin: 0 auto;
 }
 
+.InquiryList h2 {
+  margin-top: 50px;
+  position: relative;
+  font-weight: bold;
+  left: 10%;
+}
+
 .search-input {
   position: relative;
   left: 70%;
 
+  margin-top: 50px;
   margin-bottom: 10px;
 }
 
 .search-input input {
   margin-right: 8px;
 
-  width: 130px;
+  font-size: 20px;
+
+  width: 195px;
   border: none;
   border-bottom: solid 1px black;
 }
@@ -184,6 +275,8 @@ a {
   background: none;
   box-shadow: 0.5px 0.5px 0.5px #ccac4c;
 
+  font-size: 20px;
+
   padding: 3px;
 }
 
@@ -194,12 +287,17 @@ a {
   margin: 0 auto;
 }
 
-.Inquiry h3 {
-  text-align: center;
+.InquiryList div {
+  font-size: 24px;
+}
+
+.Inquiry span {
+  font-size: 18px;
 }
 
 .Inquiry p {
   height: 320px;
+  font-size: 18px;
 }
 
 .Inquiry span:last-child {
@@ -223,13 +321,18 @@ a {
 }
 
 .InquiryAnswer textarea {
-  width: 400px;
+  border: none;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  width: 350px;
   /* border: none; */
 
-  height: 250px;
+  height: 300px;
   width: 60%;
 
-  left: 220px;
+  margin-top: 20px;
+
+  left: 20%;
   position: relative;
 }
 
@@ -237,9 +340,614 @@ a {
   cursor: pointer;
   margin-top: 40px;
 
+  font-size: 24px;
+
   position: relative;
   right: -73%;
 
   border: none;
   background: none;
+}
+
+.UserList img {
+  position: relative;
+  left: 20%;
+}
+
+.UserList h2 {
+  margin-top: 50px;
+  position: relative;
+  font-weight: bold;
+  left: 10%;
+}
+
+.UserList div {
+  font-size: 24px;
+}
+
+.descripition {
+  margin-bottom: 30px;
+
+  position: relative;
+  left: 10%;
+}
+
+.dropdown {
+  top: 10px;
+  left: 30px;
+
+  margin-bottom: 20px;
+}
+
+.Graph h2 {
+  margin-top: 50px;
+  position: relative;
+  font-weight: bold;
+  left: 10%;
+}
+
+.Footer {
+  padding-top: 20px;
+  background-color: #ffbf00;
+}
+
+.Footer .Footer-description {
+  margin-top: 50px;
+  margin-left: 100px;
+  padding-bottom: 20px;
+
+  font-size: 18px;
+}
+
+/* ----------------------------------------------- */
+/* 스타일 추가 */
+.user-card {
+  font-family: 'Nanum Pen Script';
+  font-size: 22px;
+
+  position: fixed;
+
+  border: none;
+  border-radius: 5px;
+
+  overflow: hidden;
+  margin: 100px auto;
+  transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+
+  width: 30%;
+  max-height: 60%;
+  overflow-y: auto;
+
+  top: 2%;
+  left: 35%;
+  transform: translate(3%, 3%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.user-card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transform: translateY(-0.001px);
+}
+
+.close-btn {
+  cursor: pointer;
+  border: none;
+  background: none;
+  position: relative;
+  float: right;
+  cursor: pointer;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+html {
+  height: 100%;
+}
+
+ol.large-numbers {
+  counter-reset: li; /* Initiate a counter */
+  margin-left: 0; /* Remove the default left margin */
+  padding-left: 0; /* Remove the default left padding */
+  line-height: 1.25;
+}
+ol.large-numbers > li {
+  position: relative; /* Create a positioning context */
+  list-style: none; /* Disable the normal item numbering */
+  margin: 1rem 0 1rem 2rem;
+  padding: 0 0 0 1rem;
+}
+ol.large-numbers > li:before {
+  content: counter(li); /* Use the counter as content */
+  counter-increment: li; /* Increment the counter by 1 */
+  /* Position and style the number */
+  position: absolute;
+  top: -0.3em; /* move numbers up or down as needed */
+  left: -0.9em;
+  width: 1em;
+  text-align: center;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 2em;
+  font-weight: bold;
+  font-weight: 700;
+  color: #a8caba;
+  text-shadow: 3px 3px 0 #838689, -1px -1px 0 #838689, 1px -1px 0 #838689,
+    -1px 1px 0 #838689, 1px 1px 0 #838689;
+}
+ol.large-numbers li:hover:before {
+  color: #ebe3aa;
+}
+
+/* ----------------------------------------------------- */
+.user-card input {
+  border: none;
+  border-bottom: solid 1px black;
+  margin-bottom: 15px;
+}
+
+.user-card button {
+  border: none;
+  background: none;
+  float: right;
+}
+
+/* ----------------------------------------------------- */
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+nav {
+  display: block;
+  font-family: 'Nanum Pen Script';
+  font-size: 32px;
+
+  background: #ffbf00;
+}
+
+.menu {
+  display: block;
+}
+
+.menu li {
+  display: inline-block;
+  position: relative;
+  z-index: 100;
+}
+
+.menu li:first-child {
+  margin-left: 0;
+}
+
+.menu li a {
+  font-weight: 600;
+  font-size: 32px;
+  text-decoration: none;
+  padding: 20px 15px;
+  display: block;
+  color: black;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.menu li a:hover,
+.menu li:hover > a {
+  color: black;
+  background: #fcca41;
+  border-radius: 15px;
+}
+
+.menu ul {
+  visibility: hidden;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  width: 170px;
+  position: absolute;
+  left: 0px;
+  background: #fff;
+  z-index: 99;
+  transform: translate(0, 20px);
+  transition: all 0.2s ease-out;
+}
+
+.menu ul:after {
+  bottom: 100%;
+  left: 20%;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #fff;
+  border-width: 6px;
+  margin-left: -6px;
+}
+
+.menu ul li {
+  display: block;
+  float: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu ul li a {
+  font-weight: normal;
+  display: block;
+  color: #797979;
+  background: #fff;
+
+  font-size: 18px;
+}
+
+.menu ul li a:hover,
+.menu ul li:hover > a {
+  background: #fcca41;
+  color: black;
+}
+
+.menu li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.menu ul ul {
+  left: 169px;
+  top: 0px;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate(20px, 20px);
+  transition: all 0.2s ease-out;
+}
+
+.menu ul ul:after {
+  left: -6px;
+  top: 10%;
+  border: solid transparent;
+  content: ' ';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0);
+  border-right-color: #fff;
+  border-width: 6px;
+  margin-top: -6px;
+}
+
+.menu li > ul ul:hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.responsive-menu {
+  display: none;
+  width: 100%;
+  padding: 20px 15px;
+  background: #374147;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.responsive-menu:hover {
+  background: #374147;
+  color: #fff;
+  text-decoration: none;
+}
+
+a.homer {
+  background: #9ca3da;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .mainWrap {
+    width: 768px;
+  }
+
+  .menu ul {
+    top: 37px;
+  }
+
+  .menu li a {
+    font-size: 12px;
+  }
+
+  a.homer {
+    background: #374147;
+  }
+}
+
+@media (max-width: 767px) {
+  .mainWrap {
+    width: auto;
+    padding: 50px 20px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .responsive-menu {
+    display: block;
+  }
+
+  nav {
+    margin: 0;
+    background: none;
+  }
+
+  .menu li {
+    display: block;
+    margin: 0;
+  }
+
+  .menu li a {
+    background: #fff;
+    color: #797979;
+  }
+
+  .menu li a:hover,
+  .menu li:hover > a {
+    background: #9ca3da;
+    color: #fff;
+  }
+
+  .menu ul {
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: initial;
+  }
+
+  .menu li:hover > ul {
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    transform: initial;
+  }
+
+  .menu ul ul {
+    left: 0;
+    transform: initial;
+  }
+
+  .menu li > ul ul:hover {
+    transform: initial;
+  }
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 320px) {
+}
+
+/* ------------------------------------------- */
+.Home button {
+  background: #ffbf00;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 60px;
+  font-size: 1.6em;
+  padding: 0 2em;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+}
+.Home button:hover {
+  background: #fff;
+  color: black;
+}
+.Home button:before,
+.Home button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #ffbf00;
+  transition: 400ms ease all;
+}
+.Home button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+.Home button:hover:before,
+.Home button:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+/* ----------------------------------------------------- */
+
+/* ------------------------------------------------------------------- */
+
+.BackUp h2 {
+  margin-top: 50px;
+  position: relative;
+  font-weight: bold;
+  left: 10%;
+}
+
+.BackUp button {
+  border: none;
+  background: none;
+
+  position: relative;
+  right: -80%;
+  top: 40px;
+}
+
+.container table {
+  margin-right: 100px;
+}
+
+.table {
+  border-spacing: 0 0.85rem !important;
+
+  font-size: 12px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.table thead tr,
+.table thead th {
+  border: none;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: transparent;
+}
+
+.table td {
+  background: #fff;
+}
+
+.table td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.table td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+table.dataTable.dtr-inline.collapsed
+  > tbody
+  > tr[role='row']
+  > td:first-child:before,
+table.dataTable.dtr-inline.collapsed
+  > tbody
+  > tr[role='row']
+  > th:first-child:before {
+  top: 28px;
+  left: 14px;
+  border: none;
+  box-shadow: none;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr[role='row'] > td:first-child,
+table.dataTable.dtr-inline.collapsed > tbody > tr[role='row'] > th:first-child {
+  padding-left: 48px;
+}
+
+table.dataTable > tbody > tr.child ul.dtr-details {
+  width: 100%;
+}
+
+table.dataTable > tbody > tr.child span.dtr-title {
+  min-width: 50%;
+}
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
+  padding: 0.75rem 1rem 0.125rem;
+}
+
+div.dataTables_wrapper div.dataTables_length label,
+div.dataTables_wrapper div.dataTables_filter label {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
+    margin-top: 1rem;
+  }
+}
+
+.btn .bx {
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.badge {
+  padding: 0.5em 0.75em;
+}
+
+.badge-success-alt {
+  background-color: #d7f2c2;
+  color: #7bd235;
+}
+
+.table a {
+  color: #212529;
+}
+
+.table a:hover,
+.table a:focus {
+  text-decoration: none;
+}
+
+table.dataTable {
+  margin-top: 12px !important;
+}
+
+.btn {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+}
+
+/* ------------------------------------- */
+
+.imgDiv {
+  position: relative;
+  height: 500px;
+  width: 60%;
+  margin: 0px;
+
+  padding-left: 50px;
+  padding-right: 50px;
+  left: 18%;
+
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+
+  overflow: auto;
+}
+
+.accuracy {
+  left: 5%;
+}
+
+.loss {
+  top: 100%;
+  left: 5%;
+}
+
+
+/* ----------------------------------------- */
+.user-info:hover {
+  background-color: #f0f0f0; /* Change this to the background color you want on hover */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
 }

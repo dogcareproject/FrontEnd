@@ -28,7 +28,10 @@ const InquiryList = () => {
         },
       })
       .then((response) => {
-        setData(response.data);
+        const sortedData = response.data.sort((a, b) => {
+          return new Date(b.createTime) - new Date(a.createTime);
+        });
+        setData(sortedData);
         setLoading(false);
       })
       .catch((error) => {
@@ -41,6 +44,12 @@ const InquiryList = () => {
 
   return (
     <div>
+      <div className='Graph'>
+      <h2>사용자 문의</h2>
+      <div className='descripition'>
+        사용자들의 문의 내용을 확인할 수 있습니다.
+      </div>
+      </div>
       <div className='search-input'>
         <input
           type="text"
@@ -48,7 +57,7 @@ const InquiryList = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button onClick={handleSearch}><i class="bi bi-search"></i>&nbsp;&nbsp;검색</button>
+        <button onClick={handleSearch}><i className="bi bi-search"></i>&nbsp;&nbsp;검색</button>
       </div>
       <List
         className="InquiryList"
@@ -68,8 +77,8 @@ const InquiryList = () => {
             ]}
           >
             <List.Item.Meta
-              title={<a onClick={() => navigation(`/inquiryDetail/${item.inquiryId}`)}>{item.title}</a>}
-              description={item.content}
+              title={<a style={{ fontWeight: 'bold', fontSize: "23px" }} onClick={() => navigation(`/inquiryDetail/${item.inquiryId}`)}>{item.title}</a>}
+              description={<span style={{ fontWeight: 'bold', fontSize: "20px" }}>{item.content}</span>}
             />
           </List.Item>
         )}
